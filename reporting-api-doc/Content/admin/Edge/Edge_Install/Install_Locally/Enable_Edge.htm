@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="welcome.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta data-productName="Hitachi Content Platform Anywhere" />
+        <meta data-productVersion="4.0" />
+        <meta data-docTitle="HCP Anywhere Reporting API Reference Guide" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Step 1: Enable Edge in a profile</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/V2-Online-Help.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/NoteTable.css" rel="stylesheet" />
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapGlobal.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapDom.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapUtilities.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapXhr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapTextEffects.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapSlideshow.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapFeedback.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapDefault.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapHelpSystem.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapToc.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapToc.Breadcrumbs.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapToc.MiniToc.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapToc.SideMenu.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapIndex.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapGlossary.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapParser.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapSearch.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapTopic.js">
+        </script>
+    </head>
+    <body class="MasterPage">
+        <p class="MasterPageDocTitle"><span class="GlobalVariablesDocTitle">HCP Anywhere Reporting API Reference Guide</span>
+        </p>
+        <div class="bodyContent">
+            <div class="MasterPageBreadcrumbs">
+            </div>
+            <hr width="100%" size="0" align="center" />
+            <h1>Step 1: Enable <span class="adminVariablese2fs-shortName">Edge</span> in a profile</h1>
+            <p>To register an&#160;<span class="adminVariablese2fs-longName">Edge</span> device, you need to be part of a profile that has the <span class="adminVariablese2fs-shortName">Edge</span> device&#160;type enabled. This device type helps you to enforce who can and cannot register an <span class="adminVariablese2fs-longName">Edge</span> device. By default, the <span class="adminVariablese2fs-longName">Edge</span> device type is enabled in each profile.</p>
+            <p>For more information on profiles and how to create one, see <a href="../../../profiles/Creating_Profile/admin-creatingProfileIntro.htm" class="MCXref xref">Creating a profile</a>.</p>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />How <span class="adminVariablese2fs-longName">Edge</span> is tied to its user and that user's profiles</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>Each <span class="adminVariablese2fs-longName">Edge</span> device is tied to the last user who registered or authenticated the device and the profiles that user is in.</p>
+                    <p>To ensure that your <span class="adminVariablese2fs-longName">Edge</span> devices run continuously:</p>
+                    <p class="ListNumberFirst-1" data-mc-autonum="1."><span class="autonumber"><span class="Ordered-1">1.</span></span>Create special AD&#160;users specifically for registering your <span class="adminVariablese2fs-longName">Edge</span> devices</p>
+                    <p class="ListNumber-1" data-mc-autonum="2."><span class="autonumber"><span class="Ordered-1">2.</span></span>Create a special <span class="adminVariablese2fs-longName">Edge</span> profile for these AD users</p>
+                    <p class="ListNumber-1" data-mc-autonum="3."><span class="autonumber"><span class="Ordered-1">3.</span></span>Use only the AD users in the <span class="adminVariablese2fs-longName">Edge</span> profile to register <span class="adminVariablese2fs-longName">Edge</span> devices with the <span class="ProductSpecificVariablesProductName">HCP Anywhere</span> system</p>
+                    <p class="ListNumber-1" data-mc-autonum="4."><span class="autonumber"><span class="Ordered-1">4.</span></span>Do not delete the users in AD, delete the profile those users are in, remove those users from the profile they're in, or disable the <span class="adminVariablese2fs-longName">Edge</span> device type in the profile those users are in</p>
+                </div>
+            </div>
+            <p class="TaskIntro">To enable the <span class="adminVariablese2fs-shortName">Edge</span> device type in an existing profile:</p>
+            <p class="ListNumberFirst-1" data-mc-autonum="1."><span class="autonumber"><span class="Ordered-1">1.</span></span>In the top-level menu in the <span class="AWGlobalVariablesmanagmentUI">Management Console</span>, mouse over <span class="GUI"><span class="adminVariablesprofiles menu">Access</span></span>.</p>
+            <p class="ListNumber-1" data-mc-autonum="2."><span class="autonumber"><span class="Ordered-1">2.</span></span>In the menu, click on <span class="GUI">Profiles</span>.</p>
+            <p class="ListNumber-1" data-mc-autonum="3."><span class="autonumber"><span class="Ordered-1">3.</span></span>In the list of profiles, click on the profile you want.</p>
+            <p class="ListNumber-1" data-mc-autonum="4."><span class="autonumber"><span class="Ordered-1">4.</span></span>In the profile, click on the <span class="GUI"><span class="profileVariablesfssTab">File Sync and Share</span></span> tab.</p>
+            <p class="ListNumber-1" data-mc-autonum="5."><span class="autonumber"><span class="Ordered-1">5.</span></span>On the left side of the profile, click on <span class="GUI">Devices</span>.</p>
+            <p class="ListNumber-1" data-mc-autonum="6."><span class="autonumber"><span class="Ordered-1">6.</span></span>In the <span class="GUI">Device types allowed</span> section, select <span class="GUI"><span class="ProductSpecificVariablesProductName">HCP Anywhere</span> <span class="adminVariablese2fs-shortName">Edge</span></span>.</p>
+            <p class="ListNumber-1" data-mc-autonum="7."><span class="autonumber"><span class="Ordered-1">7.</span></span>Optionally, in the <span class="GUI">Authentication Token Expiration</span> section, change the expiration time for the <span class="GUI">Data Management and <span class="adminVariablese2fs-longName">Edge</span> API</span>. The default expiration time is one week.</p>
+            <table style="width: 97.5%;mc-table-style: url('../../../../Resources/TableStyles/NoteTable.css');margin-left: 25px;margin-right: auto;" class="TableStyle-NoteTable" cellspacing="0">
+                <col class="Column-NoteIcon" />
+                <col class="Column-NoteText" />
+                <tbody>
+                    <tr class="Body-Body1">
+                        <td class="BodyB-NoteIcon-Body1">
+                            <img src="../../../../Resources/Images/noteTables/NoteWebHelp_41x37.png" class="Note" style="width: 41;height: 37;" data-mc-conditions="GlobalConditions.HelpOnly" />
+                        </td>
+                        <td class="BodyA-NoteText-Body1">
+                            <p class="Note" data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span><span class="adminVariablese2fs-shortName">Edge</span> uses a two-token authentication method to ensure that it's secure while still able to run continuously without requiring a user to  periodically reauthenticate.  The two-token method uses:</p>
+                            <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span> An access token — This token is used to access data.&#160;The expiration time you set in the profile applies to the authentication token. Ideally, the access token is short lived and refreshed frequently since it is sent to the <span class="ProductSpecificVariablesProductName">HCP Anywhere</span> system with each request.</p>
+                            <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span>A refresh token — This token is used to acquire a new authentication token from the <span class="ProductSpecificVariablesProductName">HCP Anywhere</span> system once the old authentication token expires. &#160;The refresh token is permanent.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ListNumber-1" data-mc-autonum="8."><span class="autonumber"><span class="Ordered-1">8.</span></span>Click on <span class="GUI">Save Settings</span>.</p>
+            <p class="MasterPageLegalLinks"><i><a href="../../../../Resources/WebHelpLegal/Trademark.htm" class="MCTopicPopup MCTopicPopupHotSpot a aPopup" data-mc-width="auto" data-mc-height="auto">Trademarks</a> and <a href="../../../../Resources/WebHelpLegal/LegalDisclaimer.htm" class="MCTopicPopup MCTopicPopupHotSpot a aPopup" data-mc-width="auto" data-mc-height="auto">Legal Disclaimer</a></i>
+            </p>
+            <p style="font-size: 9pt;margin-left:0;"><span style="font-size: 8pt;">© <span class="GlobalVariablesCopyright">2018</span> <span class="GlobalVariablesCopyrightOwner">Hitachi Vantara Corporation</span>. All rights reserved.</span>
+            </p><a style="display: none;" href="../../../../Resources/Fonts/calibril.ttf">Calibri Light.ttf</a>
+        </div>
+    </body>
+</html>

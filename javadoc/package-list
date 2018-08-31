@@ -1,0 +1,9 @@
+com.hds.aw.auto.reportingApi.sdk
+com.hds.aw.auto.reportingApi.sdk.example
+com.hds.aw.auto.reportingApi.sdk.implementations.v210
+com.hds.aw.auto.reportingApi.sdk.implementations.v210.admin
+com.hds.aw.auto.reportingApi.sdk.implementations.v210.audit
+com.hds.aw.auto.reportingApi.sdk.interfaces
+com.hds.aw.auto.reportingApi.sdk.interfaces.admin
+com.hds.aw.auto.reportingApi.sdk.interfaces.audit
+com.hds.aw.auto.reportingApi.sdk.models

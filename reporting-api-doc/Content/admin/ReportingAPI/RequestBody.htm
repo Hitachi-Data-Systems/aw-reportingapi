@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="welcome.xml" data-mc-path-to-help-system="../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta data-productName="Hitachi Content Platform Anywhere" />
+        <meta data-productVersion="4.0" />
+        <meta data-docTitle="HCP Anywhere Reporting API Reference Guide" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Creating a request body</title>
+        <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/V2-Online-Help.css" rel="stylesheet" />
+        <link href="../../Resources/TableStyles/StandardTable.css" rel="stylesheet" />
+        <script src="../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapGlobal.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapDom.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapUtilities.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapXhr.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapTextEffects.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapSlideshow.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapFeedback.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapDefault.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapHelpSystem.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapToc.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapToc.Breadcrumbs.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapToc.MiniToc.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapToc.SideMenu.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapIndex.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapGlossary.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapParser.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapSearch.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapTopic.js">
+        </script>
+    </head>
+    <body class="MasterPage">
+        <p class="MasterPageDocTitle"><span class="GlobalVariablesDocTitle">HCP Anywhere Reporting API Reference Guide</span>
+        </p>
+        <div class="bodyContent">
+            <div class="MasterPageBreadcrumbs">
+                <div class="nocontent">
+                    <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" />
+            <h1>Creating a request body</h1>
+            <p>For most report requests, you need to create a JSON request body. The parameters you place in the request body determine:</p>
+            <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span> The users, system, or profile to report on .</p>
+            <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span>The size of the report .</p>
+            <p>If a report is larger than the default maxResults, which is 100 entries, or the maxResults you specify in your response body, the report returns the maxResults and a page token. In order to get the next page of the report, you need to replace the request body with the page token. For more information on paging, see <a href="InitialReportRequestAndPaging.htm" class="Standard MCXref xref xrefStandard">Requesting an initial report  and paging</a>.</p>
+            <p>Here is an example request body stored in a file named <span class="FileName">userReportParams.json</span>. This is the request body format you would use for a file modifications audit report of a single user. The startTime for this report is Mon, 16 Nov 2015 16:18:02 GMT and the endTime is Mon, 16 Nov 2015 18:47:31 GMT. The times have been converted respectively to the Unix Timestamp Conversion (UTC) times 1447690682 and 1447699651. Note that these UTC times are in milliseconds. Similarly, any start and end times you enter need to be converted to UTC times in milliseconds.</p>
+            <p style="font-style: italic;">Example request body</p>
+            <p style="font-style: italic;"><span class="FileName">userReportParams.json</span>
+            </p>
+            <p class="APICode">{<br />&#160;&#160;&#160;&#160;"user": "lgreen",<br />&#160;&#160;&#160;&#160;"startTime": 1447690682000,<br />&#160;&#160;&#160;&#160;"endTime":   1447699651000,<br />&#160;&#160;&#160;&#160;"maxResults": 20<br />}</p>
+            <p>  The following dropdown menus list the input parameters you need to run an administrative report. For each type of report, replace the information in the above example with the appropriate parameters. Some reports do not require a request body.</p>
+            <p class="TopicHeading">Administrative report request body parameters</p>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadh4"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/admin/user/profileOverrides</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption> </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Scope</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>Required. This parameter determines whether you are addressing the system or a particular profile. Valid values:</p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">SYSTEM</span>
+                                    </p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">PROFILE</span> </p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>The name of a profile. This parameter is not allowed unless the scope is <span class="GUI">PROFILE</span>, in which case the profile parameter is required.</p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/admin/user/authProviderAccess</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption> </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Scope</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>Required. This parameter determines whether you are addressing the system or a particular profile. Valid values:</p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">SYSTEM</span>
+                                    </p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">PROFILE</span> </p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>The name of a profile. This parameter is not allowed unless the scope is <span class="GUI">PROFILE</span>, in which case the profile parameter is required.</p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/admin/user/access</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption> </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Scope</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>Required. This parameter determines whether you are addressing the system or a particular profile. Valid values:</p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">SYSTEM</span>
+                                    </p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">PROFILE</span> </p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>The name of a profile. This parameter is not allowed unless the scope is <span class="GUI">PROFILE</span>, in which case the profile parameter is required.</p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/admin/user/orphaned</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption> </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Scope</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>Optional. This is parameter specifies that you are addressing the system. The default target is the system. The only valid value is <span class="GUI">SYSTEM</span>.</p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000.  </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/admin/user/lastAccess</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption>
+                        </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">scope</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>Required. This parameter determines whether you are addressing the system or a particular profile. Valid values:</p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">SYSTEM</span>
+                                    </p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">PROFILE</span>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a profile. This parameter is not allowed unless the scope is <span class="GUI">PROFILE</span>, in which case the profile parameter is required.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">inactivityTimeSeconds</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">
+                                    <p> Optional. The user inactivity time in seconds. If this parameter is provided, only users that have been inactive for at least as long as the specified time are returned. The default time is 0 seconds.</p>
+                                    <p>A user becomes inactive if their clients have not contacted the server and the user hasn't logged into the user portal and the user hasn't made a MAPI request in the time specified by this input parameter.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/admin/user/storage</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption> </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Scope</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>Whether you are addressing the system or a particular profile. Valid values:</p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">SYSTEM</span>
+                                    </p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">PROFILE</span> </p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a profile. This parameter is not allowed unless the scope is <span class="GUI">PROFILE</span>, in which case the profile parameter is required.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">includeVersions</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Boolean</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Optional. The default value is false. If this parameter is true, then the total storage for all of the user's versions is returned as well as the total storage for active versions. </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">quotaPercent</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The default value is 0. If this parameter is provided, then only users with active versions that consume quotaPercent or more of their quota are returned in this report. If includeVersions is true then even if quotaPercent is provided, it's ignored and all users are be returned. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/admin/system/storage</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p class="NormalIndent-1">
+                        <br />This resource does not use a request body.</p>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/admin/user/highQuotaUsage</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption> </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Scope</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>Required. This parameter determines whether you are addressing the system or a particular profile. Valid values:</p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">SYSTEM</span>
+                                    </p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">PROFILE</span> </p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>The name of a profile. This parameter is not allowed unless the scope is <span class="GUI">PROFILE</span>, in which case the profile parameter is required.</p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/admin/user/devices</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption> </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Scope</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>Required. This parameter determines whether you are addressing the system or a particular profile. Valid values:</p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">SYSTEM</span>
+                                    </p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">PROFILE</span> </p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>The name of a profile. This parameter is not allowed unless the scope is <span class="GUI">PROFILE</span>, in which case the profile parameter is required.</p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/admin/teamFolders</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Scope</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">
+                                    <p>Required. This parameter determines whether you are addressing the system or a particular profile. Valid values:</p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">SYSTEM</span>
+                                    </p>
+                                    <p class="ListBullet-1" data-mc-autonum="•"><span class="autonumber"><span class="Bullet1">•</span></span><span class="GUI">PROFILE</span> </p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>  The following dropdown menus list the input parameters you need to run an audit report. For each type of report, replace the information in the above example with the appropriate parameters.</p>
+            <p class="TopicHeading">Audit report request body parameters</p>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/file/modifications</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption>
+                        </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">user</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit. This parameter is required if the profile is not provided. This parameter is not allowed if the profile is provided.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a profile. This parameter is not allowed if the user parameter is supplied.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are returned in this report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications  that occurred after startTime and before endTime are returned in this report (though not necessarily on the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/file/reads</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption>
+                        </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">user</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit. This parameter is required if the profile is not provided. This parameter is not allowed if the profile is provided.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a profile. This parameter is not allowed if the user parameter is supplied.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are returned in this report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications  that occurred after startTime and before endTime are returned in this report (though not necessarily on the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/file/linkReads</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption>
+                        </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">user</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit. This parameter is required if the profile is not provided. This parameter is not allowed if the profile is provided.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a profile. This parameter is not allowed if the user parameter is supplied.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are returned in this report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications  that occurred after startTime and before endTime are returned in this report (though not necessarily on the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/file/ownedModifications</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption>
+                        </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">user</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit. This parameter is required if the profile is not provided. This parameter is not allowed if the profile is provided.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a profile. This parameter is not allowed if the user parameter is supplied.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are returned in this report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications  that occurred after startTime and before endTime are returned in this report (though not necessarily on the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/file/ownedReads</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption>
+                        </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">user</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit. This parameter is required if the profile is not provided. This parameter is not allowed if the profile is provided.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a profile. This parameter is not allowed if the user parameter is supplied.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are returned in this report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications  that occurred after startTime and before endTime are returned in this report (though not necessarily on the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/file/ownedLinkReads</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption>
+                        </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">user</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit. This parameter is required if the profile is not provided. This parameter is not allowed if the profile is provided.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a profile. This parameter is not allowed if the user parameter is supplied.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are returned in this report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications  that occurred after startTime and before endTime are returned in this report (though not necessarily on the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/path/modifications</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption> </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">user</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">path</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1"> The path to audit.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications that occurred after startTime and before this time are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The Minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/path/reads</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption> </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">user</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">path</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1"> The path to audit.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications that occurred after startTime and before this time are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The Minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/path/linkreads</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption> </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">user</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">path</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1"> The path to audit.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications that occurred after startTime and before this time are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The Minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/collaboration/sharedLink</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption>
+                        </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">User</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit. This parameter is required if the profile is not provided. This parameter is not allowed if the profile is provided.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a profile. This parameter is not allowed if the user parameter is supplied.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications that occurred after startTime and before this time are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The Minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/collaboration/share</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption>
+                        </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">User</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit. This parameter is required if the profile is not provided. This parameter is not allowed if the profile is provided.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a profile. This parameter is not allowed if the user parameter is supplied.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications that occurred after startTime and before this time are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The Minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Open dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot dropDownHotspoth4 MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="10" width="16" alt="Closed" data-mc-alt2="Open" />.../mapi/report/audit/user/activity/account</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <table style="width: 5.5in;mc-table-style: url('../../Resources/TableStyles/StandardTable.css');margin-right: auto;" class="TableStyle-StandardTable" cellspacing="0">
+                        <caption>
+                        </caption>
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <col class="TableStyle-StandardTable-Column-Column1" />
+                        <thead>
+                            <tr class="TableStyle-StandardTable-Head-Header1">
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">JSON</th>
+                                <th class="TableStyle-StandardTable-HeadE-Column1-Header1">Type</th>
+                                <th class="TableStyle-StandardTable-HeadD-Column1-Header1">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">User</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a registered AW user to audit. This parameter is required if the profile is not provided. This parameter is not allowed if the profile is provided.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">profile</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">String</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">The name of a profile. This parameter is not allowed if the user parameter is supplied.</td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">startTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. The UTC time. All modifications that occurred after this time and before the endTime are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">endTime</td>
+                                <td class="TableStyle-StandardTable-BodyE-Column1-Body1">Long</td>
+                                <td class="TableStyle-StandardTable-BodyD-Column1-Body1">Required. UTC time. All modifications that occurred after startTime and before this time are be returned by the report (though not necessarily in the first page.) </td>
+                            </tr>
+                            <tr class="TableStyle-StandardTable-Body-Body1">
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">maxResults</td>
+                                <td class="TableStyle-StandardTable-BodyB-Column1-Body1">Integer</td>
+                                <td class="TableStyle-StandardTable-BodyA-Column1-Body1">Optional. The maximum number of entries to return. Default is 100. The Minimum value is 1. The maximum value is 5000. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="MasterPageLegalLinks"><i><a href="../../Resources/WebHelpLegal/Trademark.htm" class="MCTopicPopup MCTopicPopupHotSpot a aPopup" data-mc-width="auto" data-mc-height="auto">Trademarks</a> and <a href="../../Resources/WebHelpLegal/LegalDisclaimer.htm" class="MCTopicPopup MCTopicPopupHotSpot a aPopup" data-mc-width="auto" data-mc-height="auto">Legal Disclaimer</a></i>
+            </p>
+            <p style="font-size: 9pt;margin-left:0;"><span style="font-size: 8pt;">© <span class="GlobalVariablesCopyright">2018</span> <span class="GlobalVariablesCopyrightOwner">Hitachi Vantara Corporation</span>. All rights reserved.</span>
+            </p><a style="display: none;" href="../../Resources/Fonts/calibril.ttf">Calibri Light.ttf</a>
+        </div>
+    </body>
+</html>
