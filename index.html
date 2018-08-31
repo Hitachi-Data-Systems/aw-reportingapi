@@ -1,89 +1,94 @@
 <!DOCTYPE html>
-<html lang="en-US" class="gr__hitachi-data-systems_github_io"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-
-<!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>HCP Anywhere Reporting API Java SDK</title>
-<meta name="generator" content="Jekyll v3.7.3.1">
-<meta property="og:title" content="HCP Anywhere Reporting API Java SDK">
-<meta property="og:locale" content="en_US">
-<meta name="description" content="HCP Anywhere Reporting API Java SDK">
-<meta property="og:description" content="HCP Anywhere Reporting API Java SDK">
-<link rel="canonical" href="https://hitachi-data-systems.github.io/aw-reportingapi/">
-<meta property="og:url" content="https://hitachi-data-systems.github.io/aw-reportingapi/">
-<meta property="og:site_name" content="HCP Anywhere Reporting API Java SDK">
-<script type="application/ld+json">
-{"@type":"WebSite","headline":"HCP Anywhere Reporting API Java SDK","url":"https://hitachi-data-systems.github.io/aw-reportingapi/","name":"aw-reportingapi","description":"HCP Anywhere Reporting API Java SDK","@context":"http://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Anywhere Reporting API Java SDK by Hitachi Vantara</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="./HCP Anywhere Reporting API Java SDK _ aw-reportingapi_files/style.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-  <body data-gr-c-s-loaded="true">
+  <body>
     <section class="page-header">
       <h1 class="project-name">Anywhere Reporting API Java SDK</h1>
       <h2 class="project-tagline">Powerful API for monitoring your system.</h2>
-      
-        <a href="https://github.com/Hitachi-Data-Systems/aw-reportingapi" class="btn">View on GitHub</a>
-      
-      
+      <a href="https://github.com/Hitachi-Data-Systems/aw-reportingapi" class="btn">View on GitHub</a>
+      <a href="https://github.com/Hitachi-Data-Systems/aw-reportingapi/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Hitachi-Data-Systems/aw-reportingapi/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
-      <h1 id="hcp-anywhere-reporting-api-java-sdk">HCP Anywhere Reporting API Java SDK</h1>
+      <h1>
+<a id="hcp-anywhere-reporting-sdk" class="anchor" href="#hcp-anywhere-reporting-sdk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HCP Anywhere Reporting API Java SDK</h1>
 
-<p>The HCP Anywhere Reporting API is an API for administrators to generate reports about:</p>
+<p>The HCP Anywhere Reporting API is an API for administrators to generate reports about:
 <ul>
   <li>User activity</li>
   <li>Profile activity</li>
   <li>System activity</li>
 </ul>
+This Java SDK provides convenient access to the HCP Anywhere Reporting API. </p>
 
-<h1 id="types-of-reports">Types of reports</h1>
-<ul>
-  <li>
-    <p>Administrative reports: returns information on user configuration and system resource usage. You need to have the Administrator role to generate an administrative report.</p>
-  </li>
-  <li>
-    <p>Audit reports: returns information on your HCP Anywhere users’ file sync and share activity. You need to have the Audit role to generate an audit report. You can also audit users’ activity and filesystems in the Management Console. For more information, please look at the <a href="http://hitachidatasystems.github.io/aw-reportingapi/Docs/welcomeAdmin.htm">help documentation</a>.</p>
-  </li>
-</ul>
+<h1>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h1>
 
-<h1 id="documentation">Documentation</h1>
+<p>Javadoc is available as a JAR via Maven Central or <a href="http://hitachi-data-systems.github.io/aw-reportingapi/javadoc/">via github</a>.</p>
 
-<p>Javadoc is available <a href="http://hitachidatasystems.github.io/aw-reportingapi/javadoc/">via github</a>.</p>
+<p>Reporting API documentation is available from the HCP Anywhere Management Console or <a href="http://hitachi-data-systems.github.io/aw-reportingapi/reporting-api-doc/">via github</a></p>
 
-<p>Reporting API help documentation is available from the HCP Anywhere Management Console or <a href="http://hitachidatasystems.github.io/aw-reportingapi/Docs/welcomeAdmin.htm">via github</a></p>
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
 
-<h2 id="example">Example</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ReportingAPI reportingApi = new ReportingAPI(HOSTNAME, API_VERSION, AUDIT_ADMIN_USERNAME,
+<pre><code>ReportingAPI reportingApi = new ReportingAPI(HOSTNAME, API_VERSION, AUDIT_ADMIN_USERNAME,
    PASSWORD,
    UNIQUE_ID, CLIENT_VERSION,
    CLIENT_NICKNAME);
-</code></pre></div></div>
+</code></pre>
 
 <p>A complete example is provided in the repository under /example.</p>
 
-<h1 id="questions">Questions?</h1>
+<h2>
+<a id="using-the-hcp-anywhere-reporting-sdk" class="anchor" href="#using-the-hcp-anywhere-reporting-sdk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using the HCP Anywhere Reporting API SDK</h2>
+
+<p>The SDK is available at <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.hds.hcpaw%22%20AND%20a%3A%22anywhere-reporting-sdk%22">Maven Central</a>.</p>
+
+<h3>
+<a id="maven-pom" class="anchor" href="#maven-pom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Maven Pom</h3>
+
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;com.hds.hcpaw&lt;/groupId&gt;
+  &lt;artifactId&gt;anywhere-reporting-sdk&lt;/artifactId&gt;
+  &lt;version&gt;4.0.0.12&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3>
+<a id="gradle" class="anchor" href="#gradle" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gradle</h3>
+
+<pre><code>dependencies {
+    compile 'com.hds.hcpaw:anywhere-reporting-sdk:4.0.0.12'
+}
+</code></pre>
+
+<h1>
+<a id="questions" class="anchor" href="#questions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Questions?</h1>
 
 <p>Reach out to Hitachi Vantara at our community portal <a href="http://community.hds.com">http://community.hitachivantara.com</a>.</p>
 
-<h1 id="copyright-and-license">Copyright and License</h1>
+<h1>
+<a id="copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copyright and License</h1>
 
 <p>Code and documentation copyright by Hitachi Vantara, 2018.  Release under <a href="http://www.apache.org/licenses/LICENSE-2.0">the Apache 2.0 license</a>.</p>
 
-
       <footer class="site-footer">
-        
-          <span class="site-footer-owner"><a href="https://github.com/Hitachi-Data-Systems/aw-reportingapi">Anywhere Reporting API Java SDK</a> is maintained by <a href="https://github.com/Hitachi-Data-Systems">Hitachi-Data-Systems</a>.</span>
-        
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com/">GitHub Pages</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/Hitachi-Data-Systems/aw-reportingapi">Anywhere Reporting API SDK</a> is maintained by <a href="https://github.com/Hitachi-Data-Systems">Hitachi-Data-Systems</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
+
     </section>
 
-    
-  
 
-<div id="u}V^eo[A1535744303645"></div></body></html>
+  </body>
+</html>
